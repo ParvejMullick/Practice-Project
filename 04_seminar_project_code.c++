@@ -19,7 +19,7 @@ int main()
     enter = cin.get();
     if (enter == 10)
     {
-        cout << "------ Rules : Computer will randomly generate a number between (0-10) . You need to guess it in least number of attempts -------\n";
+        cout << "------ Rules : Computer will randomly generate any integer number between (0-10) . You need to guess it in least number of attempts -------\n";
     }
     else
     {
