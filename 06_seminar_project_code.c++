@@ -11,6 +11,7 @@ public:
     T UserNum;
     int num1;
     float num2;
+    string name;
     int count = 1;
 
     float AutoNum()
@@ -20,14 +21,16 @@ public:
         num2 = ((float)rand()) / ((float)RAND_MAX);
         num2 = floor(100 * num2) / 100;
         float NUM = (num2) / num1;
-        NUM = (floor(100 * NUM) / 100) + 0.01;
-
+        NUM = (floor(100 * NUM) / 100) + 0.02;
         Automated_Number = rand() % 10 + NUM;
         return Automated_Number;
     }
 
     void Guess_The_Number()
     {
+        cout << "\nEnter your name : ";
+        cin >> name;
+        cout << "\n";
         AutoNum();
 
         while (1)
@@ -37,9 +40,10 @@ public:
             if (Automated_Number == UserNum)
             {
                 cout << "*****************************************************************\n\n";
-                cout << "CONGRATS !!! You are right , the automated number was " << Automated_Number << ".\n";
-                cout << "You guessed it in " << count << " attempts.\n\n";
-                cout << "*****************************************************************\n";
+                cout << "CONGRATS !!! You are right , the automated number was " << Automated_Number << " .\n";
+                cout << name << ", you guessed it in " << count << " attempts.\n\n";
+                cout << "*****************************************************************\n\n\n";
+                return;
             }
             else
             {
@@ -54,14 +58,18 @@ int main()
 {
     vector<int> v1;
     vector<float> v2;
-    char Guessing_Game;
-    cout << "\n                           ************ WELCOME To Number Guessing Game!!! *************                    \n"
+    int enter;
+    int Guessing_Game;
+
+    cout << "\n\n                          ************ WELCOME To Number Guessing Game!!! *************                    \n"
          << endl;
-    cout << "\n-------- Computer will randomly generate a number between (0-10) ,precise upto 2 decimal places for floating point numbers only. You need to guess it in least number of attempts --------\n\n";
-    cout << "Press 'i' to play 'Integer Guessing Game', press any key to play 'Float Guessing Game' : ";
-    cin >> Guessing_Game;
+    enter = cin.get();
+    enter == 10 ? cout << "\n----- Rules : Computer will randomly generate a number between (0-10) ,precise upto 2 decimal places for floating point numbers only. You need to guess it in least number of attempts -----\n\n" : cout << "\n----- Rules : Computer will randomly generate a number between (0-10) ,precise upto 2 decimal places for floating point numbers only. You need to guess it in least number of attempts -----\n\n";
+
+    cout << "Press enter key to play 'Integer Guessing Game', enter any other key to play 'Float Guessing Game' : ";
+    Guessing_Game = cin.get();
     cout << endl;
-    Guessing_Game == 'i' ? cout << "************ Integer Guessing Game ************\n\n" : cout << "************ Float Guessing Game ************\n\n";
-    Guessing_Game == 'i' ? v1.Guess_The_Number() : v2.Guess_The_Number();
+    Guessing_Game == 10 ? cout << "************ Integer Guessing Game ************\n\n" : cout << "************ Float Guessing Game ************\n\n";
+    Guessing_Game == 10 ? v1.Guess_The_Number() : v2.Guess_The_Number();
     return 0;
 }
