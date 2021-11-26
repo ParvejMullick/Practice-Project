@@ -9,13 +9,26 @@ int main()
     int Automated_Number;
     float UserNum;
     auto count = 1;
+    string name;
+    int enter;
 
     srand(time(NULL));
     Automated_Number = rand() % 10;
-    cout << "\n                           ************ WELCOME To Integer Guessing Game!!! *************                    \n"
+    cout << "\n\n                           ************ WELCOME to Integer Guessing Game!!! *************                    \n"
          << endl;
+    enter = cin.get();
+    if (enter == 10)
+    {
+        cout << "------ Rules : Computer will randomly generate a number between (0-10) . You need to guess it in least number of attempts -------\n";
+    }
+    else
+    {
 
-    cout << "------ Computer will randomly generate a number between (0-10) . You need to guess it in least number of attempts -------\n";
+        cout << "------ Rules : Computer will randomly generate any integer number between (0-10) . You need to guess it in least number of attempts -------\n";
+    }
+    cout << "\nEnter your name : ";
+    cin >> name;
+    cout << "\n";
 
     while (1)
     {
@@ -26,8 +39,9 @@ int main()
         {
             cout << "*****************************************************************\n\n";
             cout << "CONGRATS !!! You are right , the automated number was " << Automated_Number << ".\n";
-            cout << "You guessed it in " << count << " attempts.\n\n";
-            cout << "*****************************************************************\n";
+            cout << name << ", you guessed it in " << count << " attempts.\n\n";
+            cout << "*****************************************************************\n\n\n";
+            exit(0);
         }
         else if (Automated_Number > UserNum)
         {
